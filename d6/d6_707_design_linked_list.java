@@ -1,4 +1,5 @@
 public class d6_707_design_linked_list {
+
     class MyLinkedList {
 
         class ListNode {

@@ -1,4 +1,12 @@
 public class d6_92_reverse_linked_list_ii {
+    /**
+     * Definition for singly-linked list.
+     * public class ListNode {
+     *     int val;
+     *     ListNode next;
+     *     ListNode(int x) { val = x; }
+     * }
+     */
     public ListNode reverseBetween(ListNode head, int m, int n) {
         if (m >= n || head == null) {
             return head;

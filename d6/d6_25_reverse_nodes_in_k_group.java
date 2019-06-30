@@ -1,37 +1,47 @@
 public class d6_25_reverse_nodes_in_k_group {
+    /**
+     * Definition for singly-linked list.
+     * public class ListNode {
+     *     int val;
+     *     ListNode next;
+     *     ListNode(int x) { val = x; }
+     * }
+     */
     public ListNode reverseKGroup(ListNode head, int k) {
-        if (head == null || head.next == null) {
+        if (head == null) {
             return head;
         }
-        ListNode tail = head;
-        int count = 1;
-        while (tail != null && count < k) {
-            tail = tail.next;
-            count++;
-        }
-        if (tail == null) {
-            return head;
-        }
+        ListNode dummy = new ListNode(0);
+        dummy.next = head;
+        ListNode p1 = dummy, p2 = head;
+        int count = 0;
 
-        ListNode next = reverseKGroup(tail.next, k);
-        tail.next = null;
-        ListNode revHead = reverse(head);
-        head.next = next;
-        return revHead;
+        while (p2 != null) {
+            count++;
+            if (count == k) {
+                p1 = reverseList(p1, p2);
+                p2 = p1;
+                count = 0;
+            }
+            p2 = p2.next;
+        }
+        return dummy.next;
+
     }
 
-    private ListNode reverse(ListNode head) {
-        if (head == null || head.next == null) {
-            return head;
-        }
-        ListNode prev = null;
+    private ListNode reverseList(ListNode start, ListNode end) {
+        ListNode prev = end.next;
+        ListNode head = start.next;
         ListNode cur = head;
-        while (cur != null) {
+
+        while (prev != end) {
             ListNode next = cur.next;
             cur.next = prev;
             prev = cur;
             cur = next;
         }
-        return prev;
+
+        start.next = prev;
+        return head;
     }
 }
