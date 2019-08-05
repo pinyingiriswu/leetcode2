@@ -1,3 +1,6 @@
+import java.util.HashSet;
+import java.util.Map;
+
 public class d41_159_longest_substring_with_at_most_two_distinct_characters {
     /** Time: O(n)
      * Space: O(n) */
