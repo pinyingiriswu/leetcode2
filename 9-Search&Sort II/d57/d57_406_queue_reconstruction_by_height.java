@@ -1,5 +1,5 @@
 public class d57_406_queue_reconstruction_by_height {
-    /** Time: O(nlogn)
+    /** Time: O(n^2) --> sorting takes O(nlogn) time, inserting people takes n operations and each takes O(k) time
      * Space: O(n)*/
     // start by adding tallest people first after sorting
     public int[][] reconstructQueue(int[][] people) {
