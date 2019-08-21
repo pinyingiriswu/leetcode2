@@ -1,5 +1,5 @@
 public class d58_1095_find_in_mountain_array {
-    /** Time: O(nlogn)
+    /** Time: O(logn)
      * Space: O(1)*/
     public int findInMountainArray(int target, MountainArray mountainArr) {
         int start = 0;
