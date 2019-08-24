@@ -1,4 +1,5 @@
 public class d61_1062_longest_repeating_substring {
+    /** Method 1: DP */
     /** Time: O(n^2)
      * Space: O(n^2)*/
     public int longestRepeatingSubstring(String S) {
@@ -15,5 +16,40 @@ public class d61_1062_longest_repeating_substring {
             }
         }
         return res;
+    }
+
+    /** Method 2: Binary Search with HashSet */
+    /** Time: O(nlogn) -> average case, O(n^2) -> worst case
+     * Space: O(n^2) -> keeping hashset */
+    public int longestRepeatingSubstring(String S) {
+        int n = S.length();
+
+        int left = 1; // smallest repeating substring length
+        int right = n; // largest repeating substring length
+
+        // finding longest repeating substring length using binary search
+        while(left <= right) {
+            int len = left + (right - left) / 2;
+            if (check(len, n, S)) {
+                left = len + 1; //if there is repeating substring with length of len, we continue to explore longer length
+            } else {
+                right = len - 1;
+            }
+        }
+        return left - 1;
+    }
+
+    // check if any repeating substring with length of len
+    private boolean check(int len, int n, String S) {
+        HashSet<String> set = new HashSet<>();
+        String tmp;
+        for (int i = 0; i < n - len + 1; i++) {
+            tmp = S.substring(i, i + len);
+            if (set.contains(tmp)) {
+                return true;
+            }
+            set.add(tmp);
+        }
+        return false;
     }
 }
