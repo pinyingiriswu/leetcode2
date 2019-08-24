@@ -12,6 +12,10 @@ public class d61_668_kth_smallest_number_in_multiplication_table {
         }
         return low;
     }
+
+    /** The "count" variable means how many numbers are smaller or equal to num.
+     * For each row, we add up the count of numbers <= num to find out the ordering of num
+     * in multiplication table */
     private int helper(int m, int n, int num) {
         int count = 0;
         for (int i = 1; i <= m; i++) {
