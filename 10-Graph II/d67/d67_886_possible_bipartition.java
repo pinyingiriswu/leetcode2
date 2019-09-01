@@ -1,4 +1,4 @@
-public class d67_861_possible_bipartition {
+public class d67_886_possible_bipartition {
     /** DFS */
     /** Time: O(n)
      * Space: O(n)
