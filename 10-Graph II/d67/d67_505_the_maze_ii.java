@@ -32,7 +32,7 @@ public class d67_505_the_maze_ii {
                 y -= dir[1];
 
                 // when reaching stop point, only when the current distance (step) is smaller
-                // then previous distance stored in minDist we choose to proceed until next stop point
+                // than previous distance stored in minDist we choose to proceed until next stop point
                 if (step < minDist[x][y]) {
                     minDist[x][y] = step;
                     q.offer(new int[] {x, y});
